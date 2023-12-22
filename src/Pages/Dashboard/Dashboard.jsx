@@ -5,7 +5,6 @@ import ManageTask from "./ManageTask";
 const Dashboard = () => {
   const axiosPublic = useAxiosPublic();
   const taskAddHandler = (e) => {
-    console.log("first");
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
@@ -48,7 +47,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
-      <div ref={addTaskSection} className="block">
+      <div ref={addTaskSection} className="block mb-20">
         <form
           onSubmit={taskAddHandler}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -104,7 +103,7 @@ const Dashboard = () => {
           />
         </form>
       </div>
-      <div className="hidden h-[80vh] w-ful bg-red-300" ref={manageTaskSection}>
+      <div className="hidden w-full mb-20" ref={manageTaskSection}>
         <ManageTask></ManageTask>
       </div>
     </section>
