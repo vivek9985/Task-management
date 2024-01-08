@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import ManageTask from "./ManageTask";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const axiosPublic = useAxiosPublic();
@@ -19,8 +20,9 @@ const Dashboard = () => {
     };
     axiosPublic.post("/tasks", task).then((res) => {
       console.log(res.data);
+      toast.success("Task added!");
+      form.reset();
     });
-    console.log(task);
   };
   const manageTaskSection = useRef();
   const addTaskSection = useRef();

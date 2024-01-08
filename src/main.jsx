@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./css/style.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Home from "./Pages/Home/Home";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -18,26 +18,35 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
-    errorElement: <h2>Page not found</h2>,
+    errorElement: (
+      <div className="w-full text-center mt-72">
+        <h2 className="text-5xl font-black">Page not found</h2>
+        <Link to="/">
+          <button className="bg-gray-950 text-white px-4 py-2 mt-5">
+            Back To Home
+          </button>
+        </Link>
+      </div>
+    ),
     children: [
       {
         path: "/",
         element: <Home></Home>,
       },
       {
-        path: "/about",
-        element: <h2>About</h2>,
+        path: "about",
+        element: <div className="h-[50vh] mt-36 text-center text-3xl"><h2>About</h2></div>,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login></Login>,
       },
       {
-        path: "/register",
+        path: "register",
         element: <Register></Register>,
       },
       {
-        path: "/dashboard",
+        path: "dashboard",
         element: (
           <PrivateRoute>
             <Dashboard></Dashboard>
@@ -45,22 +54,17 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/task/:id",
+        path: "task/:id",
         element: (
           <PrivateRoute>
             <UpdateTask></UpdateTask>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/task/${params.id}`),
+          fetch(
+            `https://task-management-server-ecru-seven.vercel.app/task/${params.id}`
+          ),
+        // fetch(`http://localhost:4000/task/${params.id}`),
       },
     ],
   },

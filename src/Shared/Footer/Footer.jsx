@@ -6,7 +6,7 @@ const Footer = () => {
     <section className="w-full bg-[#fff] border-t-2 dark:bg-[#1d1d1d]">
       <div className="w-10/12 mx-auto grid md:grid-cols-3 gap-5 pt-10 md:pt-20 pb-10 md:pb-16">
         <div>
-          <h2 className="uppercase dhurjati text-xl dark:text-stone-300">
+          <h2 className="uppercase dark:text-stone-300">
             Local Time
           </h2>
           <h2 className="font-medium tracking-wide text-gray-500 dark:text-[#a9e943] lobster">
@@ -22,13 +22,13 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h2 className="uppercase dhurjati text-xl dark:text-stone-300 md:text-right">
+          <h2 className="uppercase dark:text-stone-300 md:text-right">
             Socials
           </h2>
           <ul className="flex items-center md:justify-end gap-5 text-gray-500 font-medium dark:text-[#a9e943] text-sm">
-            <li>Twitter</li>
-            <li>Instagram</li>
-            <li>Facebook</li>
+            <li className="cursor-pointer">Twitter</li>
+            <li className="cursor-pointer">Facebook</li>
+            <li className="cursor-pointer">Youtube</li>
           </ul>
         </div>
         <div className="flex md:hidden items-center justify-center mt-7">
